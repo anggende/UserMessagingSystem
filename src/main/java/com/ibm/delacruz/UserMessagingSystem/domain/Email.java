@@ -4,15 +4,18 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
+@Table(name="Email")
 public class Email {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String subject;
 	private String sender;
-	private String receiver;
+	private String recipient;
 	private String message;
 	private LocalDate dateSent;
 	private LocalDate dateReceived;
@@ -28,11 +31,11 @@ public class Email {
 	public void setSender(String sender) {
 		this.sender = sender;
 	}
-	public String getReceiver() {
-		return receiver;
+	public String getRecipient() {
+		return recipient;
 	}
-	public void setReceiver(String receiver) {
-		this.receiver = receiver;
+	public void setRecipient(String recipient) {
+		this.recipient = recipient;
 	}
 	public String getMessage() {
 		return message;
